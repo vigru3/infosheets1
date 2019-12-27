@@ -1,0 +1,2 @@
+module Clientmod::ClientsHelper
+end
