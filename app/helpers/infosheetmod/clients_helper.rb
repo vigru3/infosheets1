@@ -1,0 +1,2 @@
+module Infosheetmod::ClientsHelper
+end

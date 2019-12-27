@@ -1,0 +1,2 @@
+module Clientmod::StaticPagesHelper
+end

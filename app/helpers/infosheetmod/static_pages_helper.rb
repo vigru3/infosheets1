@@ -1,0 +1,2 @@
+module Infosheetmod::StaticPagesHelper
+end

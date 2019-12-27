@@ -1,0 +1,2 @@
+module Usermod::StaticPagesHelper
+end

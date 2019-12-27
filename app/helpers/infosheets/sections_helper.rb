@@ -1,0 +1,2 @@
+module Infosheets::SectionsHelper
+end
