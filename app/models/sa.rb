@@ -1,0 +1,2 @@
+class Sa < User
+end
