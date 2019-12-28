@@ -57,5 +57,10 @@ group :development, :test do
   gem 'rspec-rails', '4.0.0.beta3'
 end
 
+group :test do
+  gem 'airborne'
+end
+
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
+gem 'simple_form'

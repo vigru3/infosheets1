@@ -1,0 +1,8 @@
+clientmod > clients > new.html.erb
+
+<h1>New Client</h1>
+
+<%= simple_form_for @client, url: clientmod_clients_path do |f| %>
+  <%= f.input :clientname %>
+  <%= f.submit "Create" %>
+<% end %>

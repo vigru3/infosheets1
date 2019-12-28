@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   namespace :clientmod do
     resources :static_pages, only: [:index]
+    resources :clients
   end
 
   namespace :usermod do
