@@ -3,7 +3,7 @@ require 'rails_helper'
 
 RSpec.describe Clientmod::ClientsController, type: :controller do
   describe "clients#index action" do
-    it "returns correct types" do
+    it "should return correct types" do
       get :index
       expect_status(200)
     end
