@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     resources :static_pages, only: [:index]
 
     resources :clients, only: [:index, :show] do |clients|
-      resources :sections, only: [:index, :new, :create], :name_prefix => "client_"
+      resources :sections, only: [:index, :new, :create]
     end
 
     resources :sections, only: [:show, :edit, :update, :destroy]  do |section|

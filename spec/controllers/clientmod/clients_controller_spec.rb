@@ -1,5 +1,4 @@
 require 'rails_helper'
-#require 'airborne'
 
 RSpec.describe Clientmod::ClientsController, type: :controller do
   describe "clients#index action" do
