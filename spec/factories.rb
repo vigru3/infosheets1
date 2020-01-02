@@ -5,7 +5,6 @@ FactoryBot.define do
     end
     password { "password" }
     password_confirmation { "password" }
-    type { "Sa" }
   end
 
   factory :admin do
@@ -14,7 +13,6 @@ FactoryBot.define do
     end
     password { "password" }
     password_confirmation { "password" }
-    type { "Admin" }
   end
 
   factory :tech do
@@ -23,11 +21,24 @@ FactoryBot.define do
     end
     password { "password" }
     password_confirmation { "password" }
-    type { "Tech" }
   end
 
   factory :client do
-    clientname { "RspecClient"}
+    sequence :clientname do |n|
+      "RspecClient#{n}"
+    end
+    association :user
+  end
+
+  factory :section do
+    sectionname { "RspecSection" }
+    association :user, :client
+  end
+
+  factory :info do
+    infoname { "RspecInfo" }
+    infodata { "RspecInfoDATA............" }
+    association :user, :section
   end
 
 end
