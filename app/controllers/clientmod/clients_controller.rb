@@ -12,6 +12,10 @@ class Clientmod::ClientsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @client = Client.find(params[:id])
+  end
+
   private
 
   def client_params
