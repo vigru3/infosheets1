@@ -1,0 +1,10 @@
+usermod > users > edit.html.erb
+
+<%= simple_form_for @user do |f| %>
+  <%= f.input :email %>
+  <%= f.input :user_type %>
+  <%= f.input :fname %>
+  <%= f.input :lname %>
+  <%= f.input :type %>
+  <%= f.submit %>
+<% end %>

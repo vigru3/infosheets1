@@ -1,11 +1,10 @@
 FactoryBot.define do
   factory :user do
     sequence :email do |n|
-      "RspecSA#{n}@test.com"
+      "RspecUser#{n}@test.com"
     end
     password { "password" }
     password_confirmation { "password" }
-    user_type { "Sa" }
   end
 
   factory :sa do

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Clientmod::ClientsController, type: :controller do
   describe "clients#index action" do
-    it "should return correct types" do
+    it "should list all users with json" do
       get :index
       expect_status(200)
     end
@@ -40,13 +40,13 @@ RSpec.describe Clientmod::ClientsController, type: :controller do
   end
 
   describe "clients#edit action" do
-    it "should successfully show the form" do
+    it "should successfully show the edit form" do
       client = FactoryBot.create(:client)
       get :edit, params: { id: client.id }
       expect(response).to have_http_status(:success)
     end
 
-    it "should return a 404 error if the gram is not found" do
+    it "should return a 404 error if the client is not found" do
       get :edit, params: { id: 'N/A' }
       expect(response).to have_http_status(:not_found)
     end
