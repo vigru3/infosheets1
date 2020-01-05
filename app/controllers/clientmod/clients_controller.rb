@@ -14,15 +14,42 @@ class Clientmod::ClientsController < ApplicationController
 
   def show
     @client = Client.find_by_id(params[:id])
-    if @client.blank?
-      render plain: 'Not Found :(', status: :not_found
+    return render_not_found if @client.blank?
+  end
+
+  def edit
+    @client = Client.find_by_id(params[:id])
+    return render_not_found if @client.blank?
+  end
+
+  def update
+    @client = Client.find_by_id(params[:id])
+    return render_not_found if @client.blank?
+
+    @client.update(client_params)
+
+    if @client.valid?
+      redirect_to root_path
+    else 
+      return render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @client = Client.find_by_id(params[:id])
+    return render_not_found if @client.blank?
+    @client.destroy
+    redirect_to root_path
   end
 
   private
 
   def client_params
     params.require(:client).permit(:clientname)
+  end
+
+  def render_not_found
+    render plain: 'Not Found :(', status: :not_found
   end
 
 end
