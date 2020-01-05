@@ -26,7 +26,7 @@ RSpec.describe Clientmod::ClientsController, type: :controller do
   end
 
   describe "clients#show action" do
-    it "should successfully show the page if the user is found" do
+    it "should successfully show the page if the client is found" do
       client = FactoryBot.create(:client)
       get :show, params: { id: client.id }
       expect(response).to have_http_status(:success)

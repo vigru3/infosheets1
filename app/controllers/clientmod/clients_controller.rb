@@ -13,7 +13,10 @@ class Clientmod::ClientsController < ApplicationController
   end
 
   def show
-    @client = Client.find(params[:id])
+    @client = Client.find_by_id(params[:id])
+    if @client.blank?
+      render plain: 'Not Found :(', status: :not_found
+    end
   end
 
   private
