@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :static_pages, only: [:index]
 
     resources :clients, only: [:index, :show] do |clients|
-      resources :sections, only: [:index], :name_prefix => "client_"
+      resources :sections, only: [:index]
     end
 
     resources :sections, only: [:show]  do |section|

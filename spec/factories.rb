@@ -37,13 +37,13 @@ FactoryBot.define do
 
   factory :section do
     sectionname { "RspecSection" }
-    association :user, :client
+    association :client
   end
 
   factory :info do
     infoname { "RspecInfo" }
     infodata { "RspecInfoDATA............" }
-    association :user, :section
+    association :section
   end
 
 end
