@@ -32,7 +32,9 @@ FactoryBot.define do
   end
 
   factory :client do
-    clientname { "RspecClient" }
+    sequence :clientname do |n|
+      "RspecClient#{n}"
+    end
   end
 
   factory :section do

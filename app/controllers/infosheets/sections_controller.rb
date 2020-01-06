@@ -10,13 +10,8 @@ class Infosheets::SectionsController < ApplicationController
 
   private
 
-  def render_not_found
-    render plain: 'Not Found :(', status: :not_found
-  end
-
   helper_method :current_client
   def current_client
     @current_client ||= Client.find(params[:client_id])
   end
-
 end
