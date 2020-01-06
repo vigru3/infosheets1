@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
 
     resources :sections, only: [:show]  do |section|
-        resources :infos, only: [:index], :name_prefix => "section_"
+        resources :infos, only: [:index]
     end
 
     resources :infos, only: [:show]
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     end
 
     resources :sections, only: [:show, :edit, :update, :destroy]  do |section|
-        resources :infos, only: [:index, :new, :create], :name_prefix => "section_"
+        resources :infos, only: [:index, :new, :create]
     end
 
     resources :infos, only: [:show, :edit, :update, :destroy]
