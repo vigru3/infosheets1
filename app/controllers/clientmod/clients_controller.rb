@@ -47,9 +47,4 @@ class Clientmod::ClientsController < ApplicationController
   def client_params
     params.require(:client).permit(:clientname)
   end
-
-  def render_not_found
-    render plain: 'Not Found :(', status: :not_found
-  end
-
 end
