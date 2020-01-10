@@ -24,14 +24,16 @@ RSpec.describe Infosheetmod::SectionsController, type: :controller do
 
   describe "sections#new action" do
     it "should successfully show the form" do
-      get :new
+      client = FactoryBot.create(:client)
+      get :new, params: { client_id: client.id }
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "sections#create action" do
     it "should successfully create a new section in the database" do
-      post :create, params: { section: { sectionname: "RspecSection" } }
+      client = FactoryBot.create(:client)
+      post :create, params: { section: { sectionname: "RspecSection", client_id: client.id } }
       expect(response).to redirect_to root_path
 
       section = Section.last

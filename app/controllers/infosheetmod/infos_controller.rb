@@ -9,26 +9,26 @@ class Infosheetmod::InfosController < ApplicationController
   end
 
   def new
-    @client = Client.new
+    @info = current_section.infos.new
   end
 
   def create
-    @client = Client.create(client_params)
+    @info = current_section.infos.create(info_params)
     redirect_to root_path
   end
 
   def edit
-    @client = Client.find_by_id(params[:id])
-    return render_not_found if @client.blank?
+    @info = Info.find_by_id(params[:id])
+    return render_not_found if @info.blank?
   end
 
   def update
-    @client = Client.find_by_id(params[:id])
-    return render_not_found if @client.blank?
+    @info = Info.find_by_id(params[:id])
+    return render_not_found if @info.blank?
 
-    @client.update(client_params)
+    @info.update(info_params)
 
-    if @client.valid?
+    if @info.valid?
       redirect_to root_path
     else 
       return render :edit, status: :unprocessable_entity
@@ -36,9 +36,9 @@ class Infosheetmod::InfosController < ApplicationController
   end
 
   def destroy
-    @client = Client.find_by_id(params[:id])
-    return render_not_found if @client.blank?
-    @client.destroy
+    @info = Info.find_by_id(params[:id])
+    return render_not_found if @info.blank?
+    @info.destroy
     redirect_to root_path
   end
 

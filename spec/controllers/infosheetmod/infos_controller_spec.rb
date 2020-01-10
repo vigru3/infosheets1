@@ -24,14 +24,16 @@ RSpec.describe Infosheetmod::InfosController, type: :controller do
 
   describe "infos#new action" do
     it "should successfully show the form" do
-      get :new
+      section = FactoryBot.create(:section)
+      get :new, params: { section_id: section.id }
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "infos#create action" do
     it "should successfully create a new info in the database" do
-      post :create, params: { info: { infoname: "RspecInfo" } }
+      section = FactoryBot.create(:section)
+      post :create, params: { info: { infoname: "RspecInfo", section_id: section.id } }
       expect(response).to redirect_to root_path
 
       info = Info.last

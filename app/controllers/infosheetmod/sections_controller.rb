@@ -9,26 +9,26 @@ class Infosheetmod::SectionsController < ApplicationController
   end
   
   def new
-    @client = Client.new
+    @section = current_client.sections.new
   end
 
   def create
-    @client = Client.create(client_params)
+    @section = current_client.sections.create(section_params)
     redirect_to root_path
   end
 
   def edit
-    @client = Client.find_by_id(params[:id])
-    return render_not_found if @client.blank?
+    @section = Section.find_by_id(params[:id])
+    return render_not_found if @section.blank?
   end
 
   def update
-    @client = Client.find_by_id(params[:id])
-    return render_not_found if @client.blank?
+    @section = Section.find_by_id(params[:id])
+    return render_not_found if @section.blank?
 
-    @client.update(client_params)
+    @section.update(section_params)
 
-    if @client.valid?
+    if @section.valid?
       redirect_to root_path
     else 
       return render :edit, status: :unprocessable_entity
@@ -36,16 +36,16 @@ class Infosheetmod::SectionsController < ApplicationController
   end
 
   def destroy
-    @client = Client.find_by_id(params[:id])
-    return render_not_found if @client.blank?
-    @client.destroy
+    @section = Section.find_by_id(params[:id])
+    return render_not_found if @section.blank?
+    @section.destroy
     redirect_to root_path
   end
 
   private
 
   def section_params
-    params.require(:section).permit(:sectionname)
+    params.require(:section).permit(:sectionname, :client_id)
   end
 
   helper_method :current_client
