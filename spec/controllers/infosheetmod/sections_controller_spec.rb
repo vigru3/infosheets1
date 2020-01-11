@@ -33,7 +33,7 @@ RSpec.describe Infosheetmod::SectionsController, type: :controller do
   describe "sections#create action" do
     it "should successfully create a new section in the database" do
       client = FactoryBot.create(:client)
-      post :create, params: { section: { sectionname: "RspecSection", client_id: client.id } }
+      post :create, params: { client_id: client.id, section: { sectionname: "RspecSection" } }
       expect(response).to redirect_to root_path
 
       section = Section.last

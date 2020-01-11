@@ -33,7 +33,7 @@ RSpec.describe Infosheetmod::InfosController, type: :controller do
   describe "infos#create action" do
     it "should successfully create a new info in the database" do
       section = FactoryBot.create(:section)
-      post :create, params: { info: { infoname: "RspecInfo", section_id: section.id } }
+      post :create, params: { section_id: section.id, info: { infoname: "RspecInfo" } }
       expect(response).to redirect_to root_path
 
       info = Info.last
