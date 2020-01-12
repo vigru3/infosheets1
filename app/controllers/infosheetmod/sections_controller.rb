@@ -14,7 +14,7 @@ class Infosheetmod::SectionsController < ApplicationController
 
   def create
     @section = current_client.sections.create(section_params)
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   def edit

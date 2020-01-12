@@ -1,1 +1,17 @@
 dashboards > show.html.erb
+<br />
+Welcome, <%= current_user.fname %>
+<br />
+Modules:
+<br />
+<%= link_to 'Infosheets', infosheets_static_pages_path %>
+<br />
+<% if current_user.type == "Sa" || "Admin"%>
+  <%= link_to 'sheetMOD', infosheetmod_static_pages_path %>
+<% end %>
+<br />
+<% if current_user.type == "Sa" %>
+  <%= link_to 'userMOD', usermod_static_pages_path %>
+  <br />
+  <%= link_to 'clientMOD', clientmod_static_pages_path %>
+<% end %>

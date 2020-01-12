@@ -1,1 +1,27 @@
-infosheets > clients > show.htmnl.erb
+<%= link_to 'Dashboard', dashboard_path %> > <%= link_to 'Client List', infosheets_static_pages_path %> >
+<br />
+-list sections
+<br />
+
+<div>
+<ul id="list1">
+</ul>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+$(function show_link_list() {
+  $.get('/infosheets/clients/'+ '<%= @client.id %>' + '/sections').success( function( data ) {
+    $.each(data, function(index, section) {
+                // Create anchor element. 
+                var a = document.createElement('a');  
+                var ulist = document.getElementById("list1");
+                var newItem = document.createElement("li");
+                a.textContent = section.sectionname;
+                a.setAttribute('href', '/infosheets/sections/' + section.id );
+                newItem.appendChild(a);
+                ulist.appendChild(newItem); 
+    });
+  });
+});
+</script>

@@ -9,7 +9,7 @@ class Usermod::UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   def show
@@ -45,7 +45,7 @@ class Usermod::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :user_type, :fname, :lname)
+    params.require(:user).permit(:email, :password, :password_confirmation, :fname, :lname)
   end
 
   def render_not_found

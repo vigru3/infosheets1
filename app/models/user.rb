@@ -5,8 +5,10 @@ has_many :clients
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  def admin_level
+  def user_type
     level = self.type
     return level
-  end       
+  end
+  
+  
 end

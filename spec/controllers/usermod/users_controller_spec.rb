@@ -16,7 +16,7 @@ RSpec.describe Usermod::UsersController, type: :controller do
 
   describe "users#create action" do
     it "should successfully create a new user in the database" do
-      post :create, params: { user: { email: "rspec@test.com", password: "password", password_confirmation: "password", user_type: "Sa", fname: "First", lname: "Last"}}
+      post :create, params: { user: { email: "rspec@test.com", password: "password", password_confirmation: "password", type: "Sa", fname: "First", lname: "Last"}}
       expect(response).to redirect_to root_path
 
       user = User.last

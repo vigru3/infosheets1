@@ -1,1 +1,27 @@
-infosheetmod > sections > show.html.erb
+<%= link_to 'Dashboard', dashboard_path %> > <%= link_to 'Client List', infosheetmod_static_pages_path %> > <%= link_to "/Sections", infosheetmod_client_path %> >
+<br />
+<%= link_to 'Create Info', new_infosheetmod_section_info_path(@section.id) %>
+<br />
+-list infos
+<div>
+<ul id="list1">
+</ul>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+$(function show_link_list() {
+  $.get('/infosheetmod/sections/' + '<%= @section.id %>' + '/infos').success( function( data ) {
+    $.each(data, function(index, info) {
+                // Create anchor element. 
+                var a = document.createElement('a');  
+                var ulist = document.getElementById("list1");
+                var newItem = document.createElement("li");
+                a.textContent = info.infoname;
+                a.setAttribute('href', '/infosheetmod/infos/' + info.id );
+                newItem.appendChild(a);
+                ulist.appendChild(newItem); 
+    });
+  });
+});
+</script>

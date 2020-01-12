@@ -9,7 +9,7 @@ class Clientmod::ClientsController < ApplicationController
 
   def create
     @client = Client.create(client_params)
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   def show

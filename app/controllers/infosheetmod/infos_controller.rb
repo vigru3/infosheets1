@@ -14,7 +14,7 @@ class Infosheetmod::InfosController < ApplicationController
 
   def create
     @info = current_section.infos.create(info_params)
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   def edit
