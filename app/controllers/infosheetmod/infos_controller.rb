@@ -45,7 +45,7 @@ class Infosheetmod::InfosController < ApplicationController
   private
 
   def info_params
-    params.require(:info).permit(:infoname)
+    params.require(:info).permit(:title, :infodata)
   end
 
   helper_method :current_section

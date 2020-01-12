@@ -2,8 +2,16 @@ infosheetmod > infos > new.html.erb
 
 <h1>New Info</h1>
 
-<%= simple_form_for @info, url: infosheetmod_section_infos_path(current_section.id) do |f| %>
-  <%= f.input :infoname %>
-  <%= f.input :infodata %>
-  <%= f.submit "Create" %>
+<%= form_with model: @info, url: infosheetmod_section_infos_path(current_section.id) do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+    <br />
+    <br />
+    <br />
+    <%= form.label :infodata %>
+    <br />
+    <%= form.rich_text_area :infodata %>
+    <%= form.submit %>
+  </div>
 <% end %>
