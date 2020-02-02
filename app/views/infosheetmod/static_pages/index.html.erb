@@ -4,29 +4,45 @@ Client Information Sheets MODIFICATIONS
 <%= link_to 'Dashboard', dashboard_path %> >
 <br />
 <br />
-Select a Client:
 <br />
 
-<div>
-<ul id="list1">
-</ul>
-</div>
-
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
 <script>
 $(function show_link_list() {
   $.get("/infosheetmod/clients").success( function( data ) {
     $.each(data, function(index, client) {
-                // Create anchor element. 
-                var a = document.createElement('a');  
+      
+                var a = document.createElement('a');
                 var ulist = document.getElementById("list1");
                 var newItem = document.createElement("li");
 
                 a.textContent = client.clientname;
+                a.setAttribute('role', 'menuitem');
+                a.setAttribute('tabindex', '-1');                
                 a.setAttribute('href', '/infosheetmod/clients/' + client.id );
-                newItem.appendChild(a);
+                newItem.setAttribute('role', 'presentation');
+                newItem.append(a);
                 ulist.appendChild(newItem); 
     });
   });
 });
 </script>
+<body>
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Client List
+    </button>
+    <ul id="list1" class="dropdown-menu" role="menu" aria-labelledby="menu1">
+    </ul>
+  </div><br>
+  <p><strong>Note:</strong> The data-toggle="dropdown" attribute is required regardless of whether you call the dropdown() method.</p> 
+<div>
+<ul id="list1">
+</ul>
+</div>
+
+</body>
+</html>
